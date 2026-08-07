@@ -126,25 +126,6 @@
             margin-bottom: 1.2rem;
         }
 
-        .home-right .interests {
-            background: #f1f5f9;
-            padding: 1rem 1.4rem;
-            border-radius: 10px;
-            border-left: 4px solid #1e3a5f;
-            margin-bottom: 1.8rem;
-        }
-
-        .home-right .interests strong {
-            display: block;
-            margin-bottom: 0.2rem;
-            color: #0f172a;
-        }
-
-        .home-right .interests p {
-            margin: 0;
-            color: #1e293b;
-        }
-
         /* ---------- ABOUT / BIO ---------- */
         .bio-section {
             margin-top: 2.5rem;
@@ -245,7 +226,8 @@
             margin-top: 0.8rem;
         }
 
-        .paper-entry strong {
+        .paper-entry .paper-title {
+            font-weight: 600;
             color: #0f172a;
         }
 
@@ -321,10 +303,6 @@
                 flex: 0 0 auto;
             }
 
-            .home-right .interests {
-                text-align: left;
-            }
-
             nav {
                 gap: 1.2rem;
                 justify-content: center;
@@ -380,16 +358,11 @@
                     />
                 </div>
 
-                <!-- Right: Name, Title, Interests -->
+                <!-- Right: Name, Title, Institution -->
                 <div class="home-right">
                     <h1>Andrew Lee</h1>
                     <div class="title">PhD Candidate in Accountancy</div>
                     <div class="institution">University of Illinois Urbana-Champaign</div>
-
-                    <div class="interests">
-                        <strong>Research Interests</strong>
-                        <p>Financial reporting and disclosure, focusing on the flow of information between investors, analysts, and managers. Also interested in AI-related settings and applying AI-based methods in accounting research.</p>
-                    </div>
                 </div>
             </div>
 
@@ -447,10 +420,10 @@
             </div>
 
             <div class="research-section">
-                <h2>Research Experience</h2>
+                <h2>Research Assistant</h2>
 
                 <div class="paper-entry">
-                    <strong>RA for "Does Generative AI Facilitate Investor Trading?" (2025)</strong>
+                    <span class="paper-title">"Does Generative AI Facilitate Investor Trading?" (2025)</span>
                     <br />
                     Event study on ChatGPT outages and investor behavior. Co-authored with Qiang Cheng, 
                     Pengkai Lin, and Yue Zhao. Published in <em>Journal of Accounting and Economics</em>, 
