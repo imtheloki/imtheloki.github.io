@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew Lee - PhD Candidate</title>
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2.5rem 3rem;
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        nav {
+            display: flex;
+            gap: 2rem;
+            border-bottom: 2px solid #e9edf2;
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #64748b;
+            padding: 0.3rem 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #1e3a5f;
+        }
+
+        nav a.active {
+            color: #1e3a5f;
+            border-bottom-color: #1e3a5f;
+        }
+
+        /* ---------- PAGES ---------- */
+        .page {
+            display: none;
+            animation: fade 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- HOME PAGE ---------- */
+        .home-grid {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .home-left {
+            flex: 0 0 180px;
+            text-align: center;
+        }
+
+        .home-left img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e9edf2;
+            background: #e9edf2;
+        }
+
+        .home-right {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .home-right h1 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .home-right .title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1e3a5f;
+            margin-bottom: 0.1rem;
+        }
+
+        .home-right .institution {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 1.2rem;
+        }
+
+        .home-right .interests {
+            background: #f1f5f9;
+            padding: 1rem 1.4rem;
+            border-radius: 10px;
+            border-left: 4px solid #1e3a5f;
+            margin-bottom: 1.8rem;
+        }
+
+        .home-right .interests strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: #0f172a;
+        }
+
+        .home-right .interests p {
+            margin: 0;
+            color: #1e293b;
+        }
+
+        /* ---------- ABOUT / BIO ---------- */
+        .bio-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e9edf2;
+        }
+
+        .bio-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .bio-section p {
+            margin-bottom: 1rem;
+        }
+
+        .conference-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 1.5rem 0;
+        }
+
+        .conference-list li {
+            padding: 0.2rem 0;
+            color: #1e293b;
+        }
+
+        .conference-list li::before {
+            content: "• ";
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        /* ---------- CONTACT (on Home) ---------- */
+        .contact-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9edf2;
+        }
+
+        .contact-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- RESEARCH PAGE ---------- */
+        .research-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .research-section h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+        }
+
+        .research-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0 0;
+        }
+
+        .research-section ul li {
+            padding: 0.2rem 0;
+        }
+
+        .research-section ul li::before {
+            content: "• ";
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        .paper-entry {
+            background: #f8fafc;
+            padding: 1rem 1.4rem;
+            border-radius: 10px;
+            border-left: 4px solid #1e3a5f;
+            margin-top: 0.8rem;
+        }
+
+        .paper-entry strong {
+            color: #0f172a;
+        }
+
+        .paper-entry .doi {
+            display: inline-block;
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .paper-entry .doi a {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .paper-entry .doi a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- CV PAGE ---------- */
+        .cv-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .cv-section .cv-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .cv-section h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-section p {
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #1e3a5f;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.8rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: #0f2a4a;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .home-grid {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .home-left {
+                flex: 0 0 auto;
+            }
+
+            .home-right .interests {
+                text-align: left;
+            }
+
+            nav {
+                gap: 1.2rem;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            nav {
+                gap: 0.8rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+            }
+            .home-right h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ====== NAVIGATION ====== -->
+        <nav>
+            <a href="#" class="active" data-page="home">Home</a>
+            <a href="#" data-page="research">Research</a>
+            <a href="#" data-page="cv">CV</a>
+        </nav>
+
+        <!-- ========================================================= -->
+        <!-- ====== HOME PAGE ========================================= -->
+        <!-- ========================================================= -->
+        <div id="page-home" class="page active">
+
+            <div class="home-grid">
+
+                <!-- Left: Photo -->
+                <div class="home-left">
+                    <!-- 
+                        IMPORTANT: 
+                        After you upload your photo to the repository, 
+                        change the src below to just the filename, e.g.:
+                        src="photo_2026-08-07_12-46-20.jpg"
+                    -->
+                    <img 
+                        src="photo_2026-08-07_12-46-20.jpg" 
+                        alt="Andrew Lee" 
+                    />
+                </div>
+
+                <!-- Right: Name, Title, Interests -->
+                <div class="home-right">
+                    <h1>Andrew Lee</h1>
+                    <div class="title">PhD Candidate in Accountancy</div>
+                    <div class="institution">University of Illinois Urbana-Champaign</div>
+
+                    <div class="interests">
+                        <strong>Research Interests</strong>
+                        <p>Financial reporting and disclosure, focusing on the flow of information between investors, analysts, and managers. Also interested in AI-related settings and applying AI-based methods in accounting research.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== ABOUT ME (Bio + Conferences) ====== -->
+            <div class="bio-section">
+                <h2>About Me</h2>
+                <p>
+                    I am a PhD Candidate in Accountancy at the University of Illinois Urbana-Champaign. 
+                    My research focuses on financial reporting and disclosure, examining how information 
+                    flows between investors, analysts, and managers. I am also interested in AI-related 
+                    settings and applying AI-based methods in accounting research.
+                </p>
+                <p>
+                    As a research assistant for Professor Narissa Brown, I completed a replication paper 
+                    on non-GAAP research and am currently exploring new settings including managerial 
+                    learning, analyst use of prediction markets like Polymarket, and the effects of 
+                    AI-generated financial text on analyst interpretation.
+                </p>
+
+                <p><strong>Conferences attended:</strong></p>
+                <ul class="conference-list">
+                    <li>Moss Emerging Management Accounting Scholars Symposium, Champaign, IL (2026)</li>
+                    <li>Sustainability Research Camp, Champaign, IL (2026)</li>
+                    <li>Midwest Accounting Research Conference, Champaign, IL (2026)</li>
+                </ul>
+            </div>
+
+            <!-- ====== CONTACT ====== -->
+            <div class="contact-section">
+                <h2>Contact</h2>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:atlee5@illinois.edu">atlee5@illinois.edu</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://linkedin.com/in/andrewltk" target="_blank">linkedin.com/in/andrewltk</a>
+                </div>
+            </div>
+
+        </div><!-- /page-home -->
+
+        <!-- ========================================================= -->
+        <!-- ====== RESEARCH PAGE ===================================== -->
+        <!-- ========================================================= -->
+        <div id="page-research" class="page">
+
+            <div class="research-section">
+                <h2>Research Interests</h2>
+                <ul>
+                    <li>Financial reporting and disclosure</li>
+                    <li>Information flow between investors, analysts, and managers</li>
+                    <li>AI-related settings and AI-based methods in accounting research</li>
+                </ul>
+            </div>
+
+            <div class="research-section">
+                <h2>Research Experience</h2>
+
+                <div class="paper-entry">
+                    <strong>RA for "Does Generative AI Facilitate Investor Trading?" (2025)</strong>
+                    <br />
+                    Event study on ChatGPT outages and investor behavior. Co-authored with Qiang Cheng, 
+                    Pengkai Lin, and Yue Zhao. Published in <em>Journal of Accounting and Economics</em>, 
+                    Volume 80, Issues 2–3, November–December 2025, 101821.
+                    <div class="doi">
+                        <a href="https://doi.org/10.1016/j.jacceco.2025.101821" target="_blank">
+                            https://doi.org/10.1016/j.jacceco.2025.101821
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /page-research -->
+
+        <!-- ========================================================= -->
+        <!-- ====== CV PAGE =========================================== -->
+        <!-- ========================================================= -->
+        <div id="page-cv" class="page">
+
+            <div class="cv-section">
+                <div class="cv-icon">📄</div>
+                <h2>Curriculum Vitae</h2>
+                <p>Download my full CV below.</p>
+
+                <!-- 
+                    IMPORTANT: 
+                    After you upload your CV PDF to the repository, 
+                    change the href below to just the filename, e.g.:
+                    href="Andrew_Resume_2026_PhD.pdf"
+                -->
+                <a 
+                    href="Andrew_Resume_2026_PhD.pdf" 
+                    class="download-btn"
+                    download
+                >
+                    ⬇ Download CV (PDF)
+                </a>
+            </div>
+
+        </div><!-- /page-cv -->
+
+    </div><!-- /container -->
+
+    <!-- ========================================================= -->
+    <!-- ====== JAVASCRIPT: Navigation Tabs ======================= -->
+    <!-- ========================================================= -->
+    <script>
+        // Get all nav links and all page divs
+        const navLinks = document.querySelectorAll('nav a');
+        const pages = {
+            home: document.getElementById('page-home'),
+            research: document.getElementById('page-research'),
+            cv: document.getElementById('page-cv')
+        };
+
+        // Function to switch pages
+        function switchPage(pageId) {
+            // Hide all pages
+            Object.values(pages).forEach(p => p.classList.remove('active'));
+            // Show selected page
+            if (pages[pageId]) pages[pageId].classList.add('active');
+            // Update nav link styles
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Add click listeners to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.dataset.page;
+                if (pageId) switchPage(pageId);
+            });
+        });
+    </script>
+
+</body>
+</html>
