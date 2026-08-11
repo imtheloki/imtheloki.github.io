@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello from Andrew!</title>
-    <!-- Favicon: simple emoji-based icon that works in most browsers -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>" />
     <style>
-        /* ---------- RESET & BASE ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -22,7 +20,6 @@
             font-size: 1.05rem;
         }
 
-        /* ---------- SIDEBAR (fixed, stays in place) ---------- */
         .sidebar {
             position: fixed;
             top: 0;
@@ -94,14 +91,12 @@
             text-decoration: underline;
         }
 
-        /* ---------- MAIN CONTENT (to the right of sidebar) ---------- */
         .main-content {
             margin-left: 280px;
             padding: 2rem 3.5rem 4rem;
             max-width: 900px;
         }
 
-        /* ---------- TOP NAVIGATION (horizontal tabs) ---------- */
         .top-nav {
             display: flex;
             gap: 2rem;
@@ -131,7 +126,6 @@
             border-bottom-color: #1e3a5f;
         }
 
-        /* ---------- PAGES ---------- */
         .page {
             display: none;
             animation: fade 0.3s ease;
@@ -152,7 +146,6 @@
             }
         }
 
-        /* ---------- HOME PAGE ---------- */
         .home-intro p {
             margin-bottom: 1rem;
             text-align: left;
@@ -177,7 +170,6 @@
             font-style: italic;
         }
 
-        /* ---------- ABOUT PAGE ---------- */
         .about-section p {
             margin-bottom: 1rem;
             text-align: left;
@@ -187,7 +179,6 @@
             font-style: italic;
         }
 
-        /* ---------- RESEARCH PAGE ---------- */
         .research-section {
             margin-bottom: 2.5rem;
         }
@@ -243,7 +234,6 @@
             text-decoration: underline;
         }
 
-        /* ---------- CV PAGE ---------- */
         .cv-section {
             text-align: center;
             padding: 2rem 0;
@@ -283,7 +273,6 @@
             background: #0f2a4a;
         }
 
-        /* ---------- BLOG PAGE ---------- */
         .blog-section {
             text-align: center;
             padding: 3rem 0;
@@ -306,7 +295,6 @@
             font-size: 1.1rem;
         }
 
-        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             .sidebar {
                 position: relative;
@@ -383,9 +371,6 @@
 </head>
 <body>
 
-    <!-- ========================================================= -->
-    <!-- ====== SIDEBAR (fixed, stays in place) ================== -->
-    <!-- ========================================================= -->
     <aside class="sidebar">
 
         <img src="photo_2026-08-07_12-46-20.jpg" alt="Andrew Lee" />
@@ -404,12 +389,8 @@
 
     </aside>
 
-    <!-- ========================================================= -->
-    <!-- ====== MAIN CONTENT ===================================== -->
-    <!-- ========================================================= -->
     <main class="main-content">
 
-        <!-- ====== TOP NAVIGATION (horizontal tabs) ====== -->
         <nav class="top-nav">
             <a href="#" class="active" data-page="home">Home</a>
             <a href="#" data-page="about">About Me</a>
@@ -418,7 +399,6 @@
             <a href="#" data-page="blog">Blog Posts</a>
         </nav>
 
-        <!-- ====== HOME PAGE ====== -->
         <div id="page-home" class="page active">
 
             <div class="home-intro">
@@ -435,9 +415,8 @@
                 <p>... something's brewing</p>
             </div>
 
-        </div><!-- /page-home -->
+        </div>
 
-        <!-- ====== ABOUT PAGE ====== -->
         <div id="page-about" class="page">
 
             <div class="about-section">
@@ -468,9 +447,8 @@
 
             </div>
 
-        </div><!-- /page-about -->
+        </div>
 
-        <!-- ====== RESEARCH PAGE ====== -->
         <div id="page-research" class="page">
 
             <div class="research-section">
@@ -512,9 +490,8 @@
                 </div>
             </div>
 
-        </div><!-- /page-research -->
+        </div>
 
-        <!-- ====== CV PAGE ====== -->
         <div id="page-cv" class="page">
 
             <div class="cv-section">
@@ -531,9 +508,8 @@
                 </a>
             </div>
 
-        </div><!-- /page-cv -->
+        </div>
 
-        <!-- ====== BLOG PAGE ====== -->
         <div id="page-blog" class="page">
 
             <div class="blog-section">
@@ -542,15 +518,11 @@
                 <p>This page is under construction…</p>
             </div>
 
-        </div><!-- /page-blog -->
+        </div>
 
     </main>
 
-    <!-- ========================================================= -->
-    <!-- ====== JAVASCRIPT ======================================== -->
-    <!-- ========================================================= -->
     <script>
-        // Get all nav links and all page divs
         const navLinks = document.querySelectorAll('.top-nav a');
         const pages = {
             home: document.getElementById('page-home'),
@@ -560,13 +532,9 @@
             blog: document.getElementById('page-blog')
         };
 
-        // Function to switch pages
         function switchPage(pageId) {
-            // Hide all pages
             Object.values(pages).forEach(p => p.classList.remove('active'));
-            // Show selected page
             if (pages[pageId]) pages[pageId].classList.add('active');
-            // Update nav link styles
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.dataset.page === pageId) {
@@ -575,7 +543,6 @@
             });
         }
 
-        // Add click listeners to nav links
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
