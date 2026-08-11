@@ -17,46 +17,113 @@
             background-color: #f8fafc;
             color: #1e293b;
             line-height: 1.7;
-            padding: 2rem 1rem;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* ---------- SIDEBAR (fixed, stays in place) ---------- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            padding: 2.5rem 2.5rem 3rem;
-        }
-
-        /* ---------- NAVIGATION ---------- */
-        nav {
+            padding: 2.5rem 1.8rem;
             display: flex;
-            gap: 2rem;
-            border-bottom: 2px solid #e9edf2;
-            padding-bottom: 1rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid #e9edf2;
+            overflow-y: auto;
+            z-index: 100;
         }
 
-        nav a {
+        .sidebar img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e9edf2;
+            background: #e9edf2;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 0.1rem;
+        }
+
+        .sidebar .title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1e3a5f;
+            margin-bottom: 0.05rem;
+        }
+
+        .sidebar .institution {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.05rem;
+        }
+
+        .sidebar .institution:last-of-type {
+            margin-bottom: 1.2rem;
+        }
+
+        .sidebar .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar .nav-links a {
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1rem;
             color: #64748b;
             padding: 0.3rem 0;
-            border-bottom: 3px solid transparent;
+            border-bottom: 2px solid transparent;
             transition: 0.2s;
             cursor: pointer;
         }
 
-        nav a:hover {
+        .sidebar .nav-links a:hover {
             color: #1e3a5f;
         }
 
-        nav a.active {
+        .sidebar .nav-links a.active {
             color: #1e3a5f;
             border-bottom-color: #1e3a5f;
+        }
+
+        .sidebar .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            font-size: 0.85rem;
+            color: #475569;
+            width: 100%;
+            border-top: 1px solid #e9edf2;
+            padding-top: 1rem;
+        }
+
+        .sidebar .contact-links a {
+            color: #1e3a5f;
+            text-decoration: none;
+        }
+
+        .sidebar .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- MAIN CONTENT (to the right of sidebar) ---------- */
+        .main-content {
+            margin-left: 280px;
+            padding: 3rem 3.5rem 4rem;
+            max-width: 900px;
         }
 
         /* ---------- PAGES ---------- */
@@ -81,114 +148,37 @@
         }
 
         /* ---------- HOME PAGE ---------- */
-        .home-grid {
-            display: flex;
-            gap: 2.5rem;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .home-left {
-            flex: 0 0 180px;
-            text-align: center;
-        }
-
-        .home-left img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #e9edf2;
-            background: #e9edf2;
-        }
-
-        .home-right {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .home-right h1 {
-            font-size: 2.2rem;
-            color: #0f172a;
-            margin-bottom: 0.2rem;
-        }
-
-        .home-right .title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #1e3a5f;
-            margin-bottom: 0.1rem;
-        }
-
-        .home-right .institution {
-            font-size: 1rem;
-            color: #475569;
-            margin-bottom: 1.2rem;
-        }
-
-        /* ---------- ABOUT / BIO ---------- */
-        .bio-section {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 2px solid #e9edf2;
-        }
-
-        .bio-section h2 {
-            font-size: 1.5rem;
-            color: #0f172a;
+        .home-intro p {
+            font-size: 1.05rem;
             margin-bottom: 1rem;
         }
 
-        .bio-section p {
-            margin-bottom: 1rem;
-        }
-
-        .conference-list {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0 1.5rem 0;
-        }
-
-        .conference-list li {
-            padding: 0.2rem 0;
-            color: #1e293b;
-        }
-
-        .conference-list li::before {
-            content: "• ";
-            color: #1e3a5f;
-            font-weight: 700;
-        }
-
-        /* ---------- CONTACT (on Home) ---------- */
-        .contact-section {
+        .whats-new {
+            background: #f1f5f9;
+            padding: 1.2rem 1.8rem;
+            border-radius: 12px;
             margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid #e9edf2;
         }
 
-        .contact-section h2 {
-            font-size: 1.5rem;
+        .whats-new h2 {
+            font-size: 1.3rem;
             color: #0f172a;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
+        .whats-new p {
+            margin: 0;
+            color: #475569;
+            font-style: italic;
         }
 
-        .contact-item a {
-            color: #1e3a5f;
-            text-decoration: none;
-            font-weight: 500;
+        /* ---------- ABOUT PAGE ---------- */
+        .about-section p {
+            margin-bottom: 1rem;
         }
 
-        .contact-item a:hover {
-            text-decoration: underline;
+        .about-section .italics {
+            font-style: italic;
         }
 
         /* ---------- RESEARCH PAGE ---------- */
@@ -287,127 +277,190 @@
             background: #0f2a4a;
         }
 
+        /* ---------- BLOG PAGE ---------- */
+        .blog-section {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .blog-section .blog-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-section h2 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-section p {
+            color: #475569;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
         /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 700px) {
-            .container {
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
                 padding: 1.5rem;
-            }
-
-            .home-grid {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .home-left {
-                flex: 0 0 auto;
-            }
-
-            nav {
-                gap: 1.2rem;
+                border-right: none;
+                border-bottom: 1px solid #e9edf2;
+                flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: center;
+                gap: 0.8rem;
             }
 
-            nav a {
-                font-size: 1rem;
+            .sidebar img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 0;
+            }
+
+            .sidebar .info {
+                flex: 1;
+                min-width: 180px;
+                text-align: left;
+            }
+
+            .sidebar .info h1 {
+                font-size: 1.3rem;
+            }
+
+            .sidebar .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .sidebar .nav-links a {
+                border-bottom: none;
+            }
+
+            .sidebar .contact-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem 1.5rem;
+                border-top: none;
+                padding-top: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1.5rem;
             }
         }
 
-        @media (max-width: 450px) {
-            nav {
-                gap: 0.8rem;
+        @media (max-width: 480px) {
+            .sidebar {
+                flex-direction: column;
+                text-align: center;
             }
-            nav a {
-                font-size: 0.9rem;
+            .sidebar .info {
+                text-align: center;
             }
-            .home-right h1 {
-                font-size: 1.7rem;
+            .main-content {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <!-- ========================================================= -->
+    <!-- ====== SIDEBAR (fixed, stays in place) ================== -->
+    <!-- ========================================================= -->
+    <aside class="sidebar">
 
-        <!-- ====== NAVIGATION ====== -->
-        <nav>
+        <img src="photo_2026-08-07_12-46-20.jpg" alt="Andrew Lee" />
+
+        <div class="info">
+            <h1>Andrew Lee</h1>
+            <div class="title">PhD Candidate in Accountancy</div>
+            <div class="institution">University of Illinois Urbana-Champaign</div>
+            <div class="institution">Singapore Management University</div>
+        </div>
+
+        <nav class="nav-links">
             <a href="#" class="active" data-page="home">Home</a>
+            <a href="#" data-page="about">About Me</a>
             <a href="#" data-page="research">Research</a>
             <a href="#" data-page="cv">CV</a>
+            <a href="#" data-page="blog">Blog Posts</a>
         </nav>
 
-        <!-- ========================================================= -->
-        <!-- ====== HOME PAGE ========================================= -->
-        <!-- ========================================================= -->
+        <div class="contact-links">
+            <a href="mailto:atlee5@illinois.edu">atlee5@illinois.edu</a>
+            <a href="https://linkedin.com/in/andrewltk" target="_blank">LinkedIn</a>
+        </div>
+
+    </aside>
+
+    <!-- ========================================================= -->
+    <!-- ====== MAIN CONTENT ===================================== -->
+    <!-- ========================================================= -->
+    <main class="main-content">
+
+        <!-- ====== HOME PAGE ====== -->
         <div id="page-home" class="page active">
 
-            <div class="home-grid">
-
-                <!-- Left: Photo -->
-                <div class="home-left">
-                    <!-- 
-                        IMPORTANT: 
-                        After you upload your photo to the repository, 
-                        change the src below to just the filename, e.g.:
-                        src="photo_2026-08-07_12-46-20.jpg"
-                    -->
-                    <img 
-                        src="photo_2026-08-07_12-46-20.jpg" 
-                        alt="Andrew Lee" 
-                    />
-                </div>
-
-                <!-- Right: Name, Title, Institution -->
-                <div class="home-right">
-                    <h1>Andrew Lee</h1>
-                    <div class="title">PhD Candidate in Accountancy</div>
-                    <div class="institution">University of Illinois Urbana-Champaign</div>
-                </div>
-            </div>
-
-            <!-- ====== ABOUT ME (Bio + Conferences) ====== -->
-            <div class="bio-section">
-                <h2>About Me</h2>
+            <div class="home-intro">
                 <p>
-                    I am a PhD Candidate in Accountancy at the University of Illinois Urbana-Champaign. 
-                    My research focuses on financial reporting and disclosure, examining how information 
-                    flows between investors, analysts, and managers. I am also interested in AI-related 
+                    Hi! I'm Andrew, a PhD Candidate in Accountancy at the University of Illinois Urbana-Champaign.
+                    My research focuses on financial reporting and disclosure, examining how information
+                    flows between investors, analysts, and managers. I am also interested in AI-related
                     settings and applying AI-based methods in accounting research.
                 </p>
-                <p>
-                    As a research assistant for Professor Narissa Brown, I completed a replication paper 
-                    on non-GAAP research and am currently exploring new settings including managerial 
-                    learning, analyst use of prediction markets like Polymarket, and the effects of 
-                    AI-generated financial text on analyst interpretation.
-                </p>
-
-                <p><strong>Conferences attended:</strong></p>
-                <ul class="conference-list">
-                    <li>Moss Emerging Management Accounting Scholars Symposium, Champaign, IL (2026)</li>
-                    <li>Sustainability Research Camp, Champaign, IL (2026)</li>
-                    <li>Midwest Accounting Research Conference, Champaign, IL (2026)</li>
-                </ul>
             </div>
 
-            <!-- ====== CONTACT ====== -->
-            <div class="contact-section">
-                <h2>Contact</h2>
-                <div class="contact-item">
-                    <span>📧</span>
-                    <a href="mailto:atlee5@illinois.edu">atlee5@illinois.edu</a>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <a href="https://linkedin.com/in/andrewltk" target="_blank">linkedin.com/in/andrewltk</a>
-                </div>
+            <div class="whats-new">
+                <h2>What's new?</h2>
+                <p>(... something is coming)</p>
             </div>
 
         </div><!-- /page-home -->
 
-        <!-- ========================================================= -->
-        <!-- ====== RESEARCH PAGE ===================================== -->
-        <!-- ========================================================= -->
+        <!-- ====== ABOUT PAGE ====== -->
+        <div id="page-about" class="page">
+
+            <div class="about-section">
+
+                <p>
+                    Hello! I'm Andrew, originally from Singapore but now could be found at Champaign, Illinois <span class="italics">(or sometimes hiking and exploring one of the 63 national parks).</span>
+                </p>
+
+                <p>
+                    I do accounting research, but like many of us out there, I don't know exactly what it entails since it's so broad <span class="italics">(heard a dude present a working paper on tariff's impact on tourism? ig it falls under accounting as well?)</span> What I do know is that I'm interested in how information moves through financial markets, how it gets created, disclosed, interpreted, and sometimes misunderstood.
+                </p>
+
+                <p>
+                    I'm particularly drawn to the tension between theory and reality. Ball and Brown (1968) showed that when companies announce their earnings, stock prices actually respond, a simple finding that opened up the entire empirical accounting literature. Then with Fama's (1970) Efficient Markets Hypothesis came the arguments that it is not always true, as Bernard and Thomas (1989) suggested that prices continue to drift in the direction of earnings surprises for months after the announcement <span class="italics">(so the market is inefficient and we can profit from it?).</span> Sloan (1996) showed that investors focus on earnings but ignore whether those earnings come from actual cash or from accounting adjustments, and they get it wrong in predictable ways. It fascinates me that investors are human <span class="italics">(they have limited attention, they anchor on certain numbers, they make predictable mistakes),</span> and that the way information is packaged matters just as much as the information itself.
+                </p>
+
+                <p>
+                    The theoretical literature on disclosure also dives into the behaviours between managers and investors. I find myself wondering about the strategic dance between the two sides. Managers know more about their company than investors do, and they decide what to reveal, what to hide, and how to frame it. Investors know that managers are strategic, so they don't take everything at face value, they read between the lines and try to fill in the gaps. Grossman (1981) and Milgrom (1981) show us the unraveling effect, where if there's no cost to disclosing information, managers end up revealing everything because investors will assume the worst if they don't. But when disclosure has costs, Verrecchia (1983) models how managers disclose some things and hide others. And Dye (1985) and Jung and Kwon (1988) explore what happens when the market can't function properly because companies don't fully know their own quality and investors can't fully infer what's being hidden. Beyond these disclosure models, I'm also drawn to Spence's (1973) signaling framework, which uses education and talent as examples of costly signals. It's a really smart way to think about voluntary disclosure, and it highlights how costly actions can serve as credible signals of private information. I'm interested in what these models get right about real managerial behaviour, but I'm equally curious about where they fall short, especially when we start introducing new technologies that might change the very nature of how information is created and consumed.
+                </p>
+
+                <p>
+                    Lately, I've been drawn to AI and how it might reshape all of this. Blankespoor, deHaan, and Li (2026) examine how AI is changing the disclosure landscape, not just what gets disclosed, but how it's framed, written, and read. I find myself wondering about the two sides of this. On one hand, managers might use AI to generate financial text, choosing tones and frames that they think best serve their reporting objectives. On the other hand, analysts and investors might use AI to read and interpret those same disclosures, extracting patterns that humans might miss or process faster than we ever could. But what happens when AI-generated text meets AI-powered reading? Does the intended message get through, or does it get distorted? Does AI pick up on the same cues as a human analyst? And if both sides are using AI, does the information flow become more efficient, or does it become a conversation where humans are no longer in the loop?
+                </p>
+
+                <p>
+                    I should say, I'm still early in my PhD, and my views will almost certainly change <span class="italics">(tbh, I hope they do, because if I'm thinking the same things five years from now, something's gone wrong).</span> I don't have all the answers, and I don't expect to. But I enjoy thinking about these things, and I'm excited to see where the data takes me.
+                </p>
+
+            </div>
+
+        </div><!-- /page-about -->
+
+        <!-- ====== RESEARCH PAGE ====== -->
         <div id="page-research" class="page">
 
             <div class="research-section">
@@ -420,14 +473,27 @@
             </div>
 
             <div class="research-section">
+                <h2>Conferences Attended</h2>
+                <ul>
+                    <li>Moss Emerging Management Accounting Scholars Symposium, Champaign, IL (2026)</li>
+                    <li>Sustainability Research Camp, Champaign, IL (2026)</li>
+                    <li>Midwest Accounting Research Conference, Champaign, IL (2026)</li>
+                </ul>
+            </div>
+
+            <div class="research-section">
                 <h2>Research Assistant</h2>
 
                 <div class="paper-entry">
-                    <span class="paper-title">"Does Generative AI Facilitate Investor Trading?" (2025)</span>
-                    <br />
-                    Event study on ChatGPT outages and investor behavior. Co-authored with Qiang Cheng, 
-                    Pengkai Lin, and Yue Zhao. Published in <em>Journal of Accounting and Economics</em>, 
-                    Volume 80, Issues 2–3, November–December 2025, 101821.
+                    <p style="margin-bottom: 0.5rem;">
+                        <span class="paper-title">"Does Generative AI Facilitate Investor Trading? Early Evidence from ChatGPT Outages"</span> (2025)
+                    </p>
+                    <p style="margin-bottom: 0.3rem; font-size: 0.95rem;">
+                        Cheng, Q., Lin, P., &amp; Zhao, Y.
+                    </p>
+                    <p style="margin-bottom: 0.3rem; font-size: 0.95rem;">
+                        <em>Journal of Accounting and Economics</em>, <em>80</em>(2–3), 101821.
+                    </p>
                     <div class="doi">
                         <a href="https://doi.org/10.1016/j.jacceco.2025.101821" target="_blank">
                             https://doi.org/10.1016/j.jacceco.2025.101821
@@ -438,9 +504,7 @@
 
         </div><!-- /page-research -->
 
-        <!-- ========================================================= -->
-        <!-- ====== CV PAGE =========================================== -->
-        <!-- ========================================================= -->
+        <!-- ====== CV PAGE ====== -->
         <div id="page-cv" class="page">
 
             <div class="cv-section">
@@ -448,14 +512,8 @@
                 <h2>Curriculum Vitae</h2>
                 <p>Download my full CV below.</p>
 
-                <!-- 
-                    IMPORTANT: 
-                    After you upload your CV PDF to the repository, 
-                    change the href below to just the filename, e.g.:
+                <a
                     href="Andrew_Resume_2026_PhD.pdf"
-                -->
-                <a 
-                    href="Andrew_Resume_2026_PhD.pdf" 
                     class="download-btn"
                     download
                 >
@@ -465,18 +523,31 @@
 
         </div><!-- /page-cv -->
 
-    </div><!-- /container -->
+        <!-- ====== BLOG PAGE ====== -->
+        <div id="page-blog" class="page">
+
+            <div class="blog-section">
+                <div class="blog-icon">📝</div>
+                <h2>Blog Posts</h2>
+                <p>This page is under construction…</p>
+            </div>
+
+        </div><!-- /page-blog -->
+
+    </main>
 
     <!-- ========================================================= -->
-    <!-- ====== JAVASCRIPT: Navigation Tabs ======================= -->
+    <!-- ====== JAVASCRIPT ======================================== -->
     <!-- ========================================================= -->
     <script>
         // Get all nav links and all page divs
-        const navLinks = document.querySelectorAll('nav a');
+        const navLinks = document.querySelectorAll('.nav-links a');
         const pages = {
             home: document.getElementById('page-home'),
+            about: document.getElementById('page-about'),
             research: document.getElementById('page-research'),
-            cv: document.getElementById('page-cv')
+            cv: document.getElementById('page-cv'),
+            blog: document.getElementById('page-blog')
         };
 
         // Function to switch pages
